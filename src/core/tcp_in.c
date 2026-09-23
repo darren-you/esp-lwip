@@ -1940,7 +1940,10 @@ tcp_receive(struct tcp_pcb *pcb)
   } else {
     /* Segments with length 0 is taken care of here. Segments that
        fall out of the window are ACKed. */
-    if (!TCP_SEQ_BETWEEN(seqno, pcb->rcv_nxt, pcb->rcv_nxt + pcb->rcv_wnd - 1)) {
+    /* RFC 9293 Table 6: an empty segment at RCV.NXT is acceptable
+     * even when the receive window is zero. Do not ACK such an ACK. */
+    if (pcb->rcv_wnd == 0 ? seqno != pcb->rcv_nxt :
+        !TCP_SEQ_BETWEEN(seqno, pcb->rcv_nxt, pcb->rcv_nxt + pcb->rcv_wnd - 1)) {
       tcp_ack_now(pcb);
     }
   }

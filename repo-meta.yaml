@@ -1,0 +1,36 @@
+schema_version: 5
+name: esp-lwip
+workspace_area: tooling
+archetype: tooling-repo
+lifecycle: incubating
+owner: darren-you
+governance_tier: standard
+domains:
+  - device-connectivity
+domain_roots:
+  device-connectivity:
+    - .
+delivery_surfaces:
+  - sdk-source
+depends_on: []
+default_workflows:
+  - test-sdk-source
+doc_status:
+  architecture: present
+  api: present
+  release: missing
+github:
+  repo: darren-you/esp-lwip
+  visibility: public
+  about: ESP-IDF lwIP 固定源依赖，维护已验证的零窗口 ACK 根因修正及独立回归
+  topics:
+    - darren-space
+    - tooling-repo
+    - device-connectivity
+    - lwip
+    - esp-idf
+    - sdk-source
+entrypoints:
+  - README.md
+  - AGENTS.md
+  - tests/zero-window/README.md
