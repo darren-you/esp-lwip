@@ -2,6 +2,8 @@
 
 ESP-IDF 的 lwIP 源依赖，基于 [espressif/esp-lwip](https://github.com/espressif/esp-lwip) 的 `c6f2f878e7b0f86033214b85547d579be43351e3`（ESP-IDF v6.1 所选版本）。仅维护已在 ESP32-C3 复现的零窗口纯 ACK 根因修正及其回归，保留完整上游历史、源文件版权和 [BSD 许可证](COPYING)。本仓不替代 ESP-IDF 的 FreeRTOS、网络适配或产品 FRP/MQTT 实现。
 
+新增的 `tests/zero-window` 回归代码使用 Apache-2.0，全文见 [测试许可证](tests/zero-window/LICENSE)。lwIP 原始源码与 `tcp_in.c` 根因修正继续遵循原 BSD-3-Clause 条款。
+
 ## 架构拓扑
 
 ```mermaid
