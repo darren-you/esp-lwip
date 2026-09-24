@@ -20,7 +20,7 @@ doc_status:
   api: present
   release: missing
 github:
-  repo: darren-you/esp-lwip
+  repo: esp-space/esp-lwip
   visibility: public
   about: ESP-IDF lwIP 固定源依赖，维护已验证的零窗口 ACK 根因修正及独立回归
   topics:

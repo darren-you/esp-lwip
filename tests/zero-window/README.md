@@ -22,4 +22,4 @@ ctest --test-dir /tmp/esp-lwip-check --output-on-failure
 
 当前 ESP-IDF v6.1 的 `esp-lwip@c6f2f878e7b0f86033214b85547d579be43351e3` **预期会暴露真实失败**，不将它设置为 `WILL_FAIL` 或计作通过。失败钩子只输出长度、flags、窗口及序号相等判断；不吞包、改窗口或修改 TCP 状态。ASan/UBSan 的宿主对齐使用 8 字节；此 raw API 最小复现不代表 FreeRTOS、Wi-Fi 或 MCU 资源验收。
 
-问题和实验边界见 [C3 回环问题](https://github.com/darren-you/esp-frp/blob/master/docs/issues/c3-loopback-memory-pressure.md)。序号接受语义依据 [RFC 9293 表 6](https://www.rfc-editor.org/rfc/rfc9293.html#table-6)。本回归单独通过不能替代真实板、资源预算和完整 FRP 矩阵。
+问题和实验边界见 [C3 回环问题](https://github.com/esp-space/esp-frp/blob/master/docs/issues/c3-loopback-memory-pressure.md)。序号接受语义依据 [RFC 9293 表 6](https://www.rfc-editor.org/rfc/rfc9293.html#table-6)。本回归单独通过不能替代真实板、资源预算和完整 FRP 矩阵。

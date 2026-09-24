@@ -22,7 +22,7 @@ flowchart LR
 
 两端接收窗口都为零时，原逻辑把 `SEG.SEQ == RCV.NXT` 的空 ACK 误判为窗外报文，并回复另一个空 ACK。板内回环持续处理这些报文，使 TCP/IP 任务无法返回应用层。修正直接落实 [RFC 9293 表 6](https://www.rfc-editor.org/rfc/rfc9293.html#table-6)：零长度、零窗口时精确接受 `RCV.NXT`；非零窗口维持既有半开区间判断。
 
-不丢弃报文，不改变窗口或缓冲容量，不关闭看门狗、证书或认证校验。C3 对照实验与 FRP 资源边界见 [ESP FRP 问题记录](https://github.com/darren-you/esp-frp/blob/master/docs/issues/c3-loopback-memory-pressure.md)。通过本仓回归不代表产品内存预算、全部协议场景或长稳已经通过。
+不丢弃报文，不改变窗口或缓冲容量，不关闭看门狗、证书或认证校验。C3 对照实验与 FRP 资源边界见 [ESP FRP 问题记录](https://github.com/esp-space/esp-frp/blob/master/docs/issues/c3-loopback-memory-pressure.md)。通过本仓回归不代表产品内存预算、全部协议场景或长稳已经通过。
 
 ## 验证
 
