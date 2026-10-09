@@ -78,7 +78,7 @@ Submit patches and bugs via the lwIP project page:
   https://savannah.nongnu.org/projects/lwip/
 
 Continuous integration builds (GCC, clang):
-  普通开发回归入口仍在 test/ci；工作区 CI 由 mac-ci-1 的 Fast Deploy 执行。
+  https://github.com/lwip-tcpip/lwip/actions
 
 
 DOCUMENTATION
