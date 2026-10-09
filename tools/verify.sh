@@ -1,9 +1,17 @@
 #!/usr/bin/env bash
 set -euo pipefail
 repo_root="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
+if (( $# > 1 )) || [[ "${1:-}" != "" && "${1:-}" != gcc && "${1:-}" != clang ]]; then
+  printf '用法：%s [gcc|clang]\n' "$0" >&2
+  exit 2
+fi
+compilers=(gcc clang)
+if (( $# == 1 )); then
+  compilers=("$1")
+fi
 build_dir="$(mktemp -d)"
 trap 'rm -rf -- "$build_dir"' EXIT
-for compiler in gcc clang; do
+for compiler in "${compilers[@]}"; do
   command -v "$compiler" >/dev/null
   log_file="$build_dir/$compiler.log"
   if ! {
