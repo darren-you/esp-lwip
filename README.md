@@ -36,3 +36,5 @@ ctest --test-dir /tmp/esp-lwip-check --output-on-failure
 不依赖 ESP 设备、私有配置或相邻仓。普通序号与 32 位回绕各执行 100 次双向窗口填满/恢复、精确字节验证，并检查零窗口错误序号及非零窗口边界。可显式传 `LWIP_SOURCE_DIR` 验证其他实际 SDK 源码；原始固定上游应暴露失败，不将失败标为通过。具体范围见 [回归入口](tests/zero-window/README.md)。上游其他说明保存在原样的 [README](README) 与 `doc/`。
 
 工作区工程合同见 [嵌入式标准](https://github.com/darren-you/darren-space/blob/master/harness/docs/workspace/standards/embedded-firmware/embedded-firmware-golden-path.md)。本仓交付协议栈源码，不创建固件、分区、部署 Job 或新的运行服务。
+
+CI 检查由 `mac-ci-1` 上 Fast Deploy 的隔离验证任务执行本仓 `bash tools/verify.sh`，源码固定为待审查的完整提交。此入口只运行既有 host／工具合同回归，不能作为 ESP32-C3、ESP32、Broker、固件或实板验收。
