@@ -19,7 +19,7 @@ for compiler in "${compilers[@]}"; do
       -DCMAKE_C_COMPILER="$compiler" \
       -DCMAKE_C_FLAGS='-fsanitize=address,undefined -fno-omit-frame-pointer -g' &&
     cmake --build "$build_dir/$compiler" &&
-    ctest --test-dir "$build_dir/$compiler" --output-on-failure
+    (cd -- "$build_dir/$compiler" && ctest --output-on-failure)
   } >"$log_file" 2>&1; then
     printf 'ESP lwIP 验证\n  结果      失败\n  编译器    %s\n' "$compiler" >&2
     cat "$log_file" >&2
