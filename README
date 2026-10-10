@@ -77,8 +77,6 @@ The current Git tree is web-browsable:
 Submit patches and bugs via the lwIP project page:
   https://savannah.nongnu.org/projects/lwip/
 
-Continuous integration builds (GCC, clang):
-  https://github.com/lwip-tcpip/lwip/actions
 
 
 DOCUMENTATION
