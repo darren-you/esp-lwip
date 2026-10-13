@@ -4,7 +4,6 @@ workspace_area: tooling
 archetype: tooling-repo
 lifecycle: incubating
 owner: darren-you
-governance_tier: standard
 domains:
   - device-connectivity
 domain_roots:
@@ -15,10 +14,6 @@ delivery_surfaces:
 depends_on: []
 default_workflows:
   - test-sdk-source
-doc_status:
-  architecture: present
-  api: present
-  release: missing
 github:
   repo: darren-you/esp-lwip
   visibility: public
